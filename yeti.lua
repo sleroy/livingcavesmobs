@@ -1,3 +1,5 @@
+local S = minetest.get_translator("livingcavesmobs")
+
 mobs:register_mob("livingcavesmobs:yeti", {
 	stepheight = 3,
 	type = "animal",
@@ -38,6 +40,7 @@ mobs:register_mob("livingcavesmobs:yeti", {
 	},
 	walk_velocity = 2,
 	run_velocity = 3,
+        knock_back = false,
 	jump = true,
 	jump_height = 2,
 	pushable = true,
@@ -69,10 +72,9 @@ mobs:register_mob("livingcavesmobs:yeti", {
 		punch_end = 500,
                 shoot_start = 400,
 		shoot_end = 500,
-
-		die_start = 1, -- we dont have a specific death animation so we will
-		die_end = 2, --   re-use 2 standing frames at a speed of 1 fps and
-		die_speed = 1, -- have mob rotate when dying.
+		die_start = 400,
+		die_end = 500,
+		die_speed = 50,
 		die_loop = false,
 		die_rotate = true,
 	},
@@ -80,7 +82,7 @@ mobs:register_mob("livingcavesmobs:yeti", {
 
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 0, 5, 50, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 25, 0, false, nil) then return end
 	end,
 })
 

@@ -1,3 +1,5 @@
+local S = minetest.get_translator("livingcavesmobs")
+
 mobs:register_mob("livingcavesmobs:flesheatingbacteria", {
 stepheight = 0,
 	type = "monster",
@@ -26,6 +28,7 @@ stepheight = 0,
 	jump = fallse,
         jump_height = 0,
 	stepheight = 0,
+	stay_near = {"livingcaves:bacteriacave_trapstone", 3},
 	drops = {
 	},
 	water_damage = 1,
@@ -49,7 +52,7 @@ stepheight = 0,
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 5, 50, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 25, 0, 0, false, nil) then return end
 	end,
 })
 
@@ -67,4 +70,4 @@ mobs:spawn({
 })
 end
 
-mobs:register_egg("livingcavesmobs:flesheatingbacteria", ("Flesh Eating Bacteria"), "aflesheatingbacteria.png")
+mobs:register_egg("livingcavesmobs:flesheatingbacteria", S("Flesh Eating Bacteria"), "aflesheatingbacteria.png")

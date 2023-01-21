@@ -1,3 +1,5 @@
+local S = minetest.get_translator("livingcavesmobs")
+
 mobs:register_mob("livingcavesmobs:chubby", {
 	stepheight = 3,
 	type = "animal",
@@ -27,6 +29,7 @@ mobs:register_mob("livingcavesmobs:chubby", {
 	jump = true,
 	jump_height = 4,
 	pushable = true,
+	stay_near = {"livingcaves:bacteriacave_poolstone", 4},
 	follow = {"fishing:bait:worm", "ethereal:worm", "animalworld:ant", "animalworld:termite", "animalworld:cockroach"},
 	view_range = 10,
 	drops = {
@@ -47,10 +50,9 @@ mobs:register_mob("livingcavesmobs:chubby", {
 		punch_speed = 70,
 		punch_start = 300,
 		punch_end = 400,
-
-		die_start = 1, -- we dont have a specific death animation so we will
-		die_end = 2, --   re-use 2 standing frames at a speed of 1 fps and
-		die_speed = 1, -- have mob rotate when dying.
+		die_start = 300,
+		die_end = 400,
+		die_speed = 50,
 		die_loop = false,
 		die_rotate = true,
 	},
@@ -63,7 +65,7 @@ mobs:register_mob("livingcavesmobs:chubby", {
 
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 0, 5, 50, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 15, 25, 0, false, nil) then return end
 	end,
 })
 

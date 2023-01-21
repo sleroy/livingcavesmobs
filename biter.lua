@@ -1,3 +1,5 @@
+local S = minetest.get_translator("livingcavesmobs")
+
 mobs:register_mob("livingcavesmobs:biter", {
 stepheight = 3,
 	type = "monster",
@@ -38,6 +40,7 @@ stepheight = 3,
 	lava_damage = 4,
 	light_damage = 1,
 	fear_height = 4,
+        stay_near = {{"livingcaves:water_flowing", "livingcaves:water_source"}, 4},
 	animation = {
 		speed_normal = 75,
 		stand_start = 0,
@@ -49,7 +52,11 @@ stepheight = 3,
 		walk_end = 300,
 		punch_start = 300,
 		punch_end = 400,
-		-- 50-70 is slide/water idle
+		die_start = 300,
+		die_end = 400,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 	follow = {
 		"ethereal:fish_raw", "anjimalworld:rawfish", "mobs_fish:tropical",
@@ -62,7 +69,7 @@ stepheight = 3,
 		-- feed or tame
 		if mobs:feed_tame(self, clicker, 4, false, true) then return end
 		if mobs:protect(self, clicker) then return end
-		if mobs:capture_mob(self, clicker, 5, 50, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 25, 0, false, nil) then return end
 	end,
 })
 
@@ -79,4 +86,4 @@ mobs:spawn({
 })
 end
 
-mobs:register_egg("livingcavesmobs:biter", ("Biter"), "abiter.png")
+mobs:register_egg("livingcavesmobs:biter", S("Biter"), "abiter.png")

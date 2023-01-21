@@ -1,3 +1,5 @@
+local S = minetest.get_translator("livingcavesmobs")
+
 mobs.grub_drops = {
 	"farming:string"
 }
@@ -29,7 +31,7 @@ mobs:register_mob("livingcavesmobs:grub", {
 	walk_velocity = 0.5,
 	run_velocity = 0.7,
 	runaway = true,
-
+        stay_near = {{"livingcaves:glowshroom_top", "default:bush_leaves", "default:blueberry_bush_leaves", "naturalbiomes:cowberrybush_leaves", "naturalbiomes:beach_bush_leaves", "naturalbiomes:outback_bush_leaves"}, 4},
 	jump = false,
 	jump_height = 3,
 	pushable = true,
@@ -49,11 +51,9 @@ mobs:register_mob("livingcavesmobs:grub", {
 		stand_end = 200,
 		walk_start = 200,
 		walk_end = 300,
-
-
-		die_start = 1, -- we dont have a specific death animation so we will
-		die_end = 2, --   re-use 2 standing frames at a speed of 1 fps and
-		die_speed = 1, -- have mob rotate when dying.
+		die_start = 200,
+		die_end = 300,
+		die_speed = 50,
 		die_loop = false,
 		die_rotate = true,
 	},
@@ -63,7 +63,7 @@ mobs:register_mob("livingcavesmobs:grub", {
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 
 		-- capture npc with net or lasso
-		if mobs:capture_mob(self, clicker, nil, 5, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 25, 0, 0, false, nil) then return end
 
 		-- protect npc with mobs:protector
 		if mobs:protect(self, clicker) then return end
@@ -89,7 +89,7 @@ mobs:register_mob("livingcavesmobs:grub", {
 				name = drops[math.random(1, #drops)]
 			})
 
-			minetest.chat_send_player(name, ("Moth dropped you a string for bush leaves!"))
+			minetest.chat_send_player(name, S("Grub dropped you a string for bush leaves!"))
 
 			return
 		end
@@ -105,11 +105,11 @@ mobs:register_mob("livingcavesmobs:grub", {
 				self:set_animation("stand")
 				self:set_velocity(0)
 
-				minetest.chat_send_player(name, ("Grub stands still."))
+				minetest.chat_send_player(name, S("Grub stands still."))
 			else
 				self.order = "follow"
 
-				minetest.chat_send_player(name, ("Grub will follow you."))
+				minetest.chat_send_player(name, S("Grub will follow you."))
 			end
 		end
 	end,
@@ -117,13 +117,13 @@ mobs:register_mob("livingcavesmobs:grub", {
 
 
 
-mobs:register_egg("livingcavesmobs:grub", ("Grub"), "agrub.png")
+mobs:register_egg("livingcavesmobs:grub", S("Grub"), "agrub.png")
 
 
 mobs:alias_mob("livingcavesmobs:grub", "livingcavesmobs:grub") -- compatibility
 
 minetest.register_craftitem(":livingcavesmobs:cocoon", {
-	description = ("Moth Cocoon"),
+	description = S("Moth Cocoon"),
 	inventory_image = "livingcavesmobs_cocoon.png",
 	drawtype = "plantlike",
 	tiles = {"livingcavesmobs_cocoon.png"},
@@ -148,7 +148,7 @@ minetest.register_craftitem(":livingcavesmobs:cocoon", {
 })
 
 minetest.register_craftitem(":livingcavesmobs:mothegg", {
-	description = ("Moth Egg"),
+	description = S("Moth Egg"),
 	inventory_image = "livingcavesmobs_mothegg.png",
 	drawtype = "plantlike",
 	tiles = {"livingcavesmobs_mothegg.png"},

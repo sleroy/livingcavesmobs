@@ -1,3 +1,5 @@
+local S = minetest.get_translator("livingcavesmobs")
+
 mobs.moth_drops = {
 	"livingcavesmobs:mothegg"
 }
@@ -40,15 +42,19 @@ stepheight = 3,
 	lava_damage = 4,
 	light_damage = 0,
 	fear_height = 0,
+        stay_near = {{"livingcaves:glowshroom_top"}, 3},
 	animation = {
 		speed_normal = 200,
 		stand_speed = 50,
 		stand_start = 120,
 		stand_end = 170,
-		walk_start = 0,
-		walk_end = 100,
-		fly_start = 0, -- swim animation
+		fly_start = 0,
 		fly_end = 100,
+		die_start = 0,
+		die_end = 100,
+		die_speed = 50,
+		die_loop = false,
+		die_rotate = true,
 	},
 
 fly_in = {"air"},
@@ -61,7 +67,7 @@ view_range = 5,
 		if mobs:feed_tame(self, clicker, 8, true, true) then return end
 
 		-- capture npc with net or lasso
-		if mobs:capture_mob(self, clicker, nil, 5, 80, false, nil) then return end
+		if mobs:capture_mob(self, clicker, 0, 25, 0, false, nil) then return end
 
 		-- protect npc with mobs:protector
 		if mobs:protect(self, clicker) then return end
@@ -127,4 +133,4 @@ mobs:spawn({
 })
 end
 
-mobs:register_egg("livingcavesmobs:moth", ("Moth"), "amoth.png")
+mobs:register_egg("livingcavesmobs:moth", S("Moth"), "amoth.png")
