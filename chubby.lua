@@ -30,7 +30,6 @@ mobs:register_mob("livingcavesmobs:chubby", {
 	jump_height = 4,
 	pushable = true,
 	stay_near = {"livingcaves:bacteriacave_poolstone", 4},
-	follow = {"fishing:bait:worm", "ethereal:worm", "animalworld:ant", "animalworld:termite", "animalworld:cockroach"},
 	view_range = 10,
 	drops = {
 	},
@@ -56,10 +55,11 @@ mobs:register_mob("livingcavesmobs:chubby", {
 		die_loop = false,
 		die_rotate = true,
 	},
-	fly_in = {"default:water_source", "default:river_water_source", "default:water_flowing", "default:river_water_flowing", "livingcaves:water_source", "livingcaves:water_flowing",},
+	fly_in = {"mcl_core:water_source", "mclx_core:river_water_source", "mcl_core:water_flowing", "mclx_core:river_water_flowing", "livingcaves:water_source", "livingcaves:water_flowing",},
 	floats = 0,
 	follow = {
-		"ethereal:worm", "seaweed", "fishing:bait_worm", "animalworld:ant", "animalworld:termite", "animalworld:fishfood"
+		"ethereal:worm", "seaweed", "fishing:bait_worm", "animalworld:ant", "animalworld:termite", "animalworld:fishfood",
+		"fishing:bait:worm", "ethereal:worm", "animalworld:ant", "animalworld:termite", "animalworld:cockroach"
 	},
 	on_rightclick = function(self, clicker)
 

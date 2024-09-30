@@ -44,7 +44,7 @@ mobs:register_mob("livingcavesmobs:yeti", {
 	jump = true,
 	jump_height = 2,
 	pushable = true,
-	follow = {"default:apple", "farming:potato", "ethereal:banana_bread", "farming:carrot", "farming:seed_rice", "farming:corn", "farming:wheat", "farming:beans", "farming:barley", "farming:oat", "farming:rye", "mobs:cheese", "farming:bread", "ethereal:banana_bread", "ethereal:banana", "farming:cabbage", "farming:lettuce", "farming:melon_slice", "livingcavesmobs:termitequeen", "livingcavesmobs:locust_roasted", "livingdesert:date_palm_fruits", "livingdesert:figcactus_fruit"},
+	follow = {"mcl_core:apple", "mcl_farming:potato", "mcl_farming:beetroot", "mcl_farming:carrot", "mcl_farming:wheat", "mcl_farming:pumpkin", "mcl_farming:wheat", "mcl_farming:beans", "mcl_farming:barley", "mcl_farming:oat", "mcl_farming:rye", "mobs:cheese", "mcl_farming:bread", "mcl_farming:beetroot", "ethereal:banana", "mcl_farming:sweet_berry_bush_0", "mcl_farming:sweet_berry_bush_1", "mcl_farming:melon_slice", "livingcavesmobs:termitequeen", "livingcavesmobs:locust_roasted", "livingdesert:date_palm_fruits", "livingdesert:figcactus_fruit"},
 	view_range = 10,
 	replace_rate = 10,
 	replace_what = {"livingcaves:icestalagmite", "livingcaves:icestalagmiteend", "livingcaves:icestalagtite", "livingcaves:icestalagtiteend", "livingcaves:icestalagmitelarge", "livingcaves:icestalagmitelargeend", "livingcaves:icestalagtitelarge", "livingcaves:icestalagtitelargeend"},

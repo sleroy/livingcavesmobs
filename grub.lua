@@ -1,7 +1,7 @@
 local S = minetest.get_translator("livingcavesmobs")
 
 mobs.grub_drops = {
-	"farming:string"
+	"mcl_mobitems:string"
 }
 
 mobs:register_mob("livingcavesmobs:grub", {
@@ -31,7 +31,7 @@ mobs:register_mob("livingcavesmobs:grub", {
 	walk_velocity = 0.5,
 	run_velocity = 0.7,
 	runaway = true,
-        stay_near = {{"livingcaves:glowshroom_top", "default:bush_leaves", "default:blueberry_bush_leaves", "naturalbiomes:cowberrybush_leaves", "naturalbiomes:beach_bush_leaves", "naturalbiomes:outback_bush_leaves"}, 4},
+        stay_near = {{"livingcaves:glowshroom_top", "mcl_core:deadbush", "mcl_core:blueberry_bush_leaves", "naturalbiomes:cowberrybush_leaves", "naturalbiomes:beach_bush_leaves", "naturalbiomes:outback_bush_leaves"}, 4},
 	jump = false,
 	jump_height = 3,
 	pushable = true,
@@ -72,7 +72,7 @@ mobs:register_mob("livingcavesmobs:grub", {
 		local name = clicker:get_player_name()
 
 		-- right clicking with gold lump drops random item from mobs.grub_drops
-		if item:get_name() == "default:bush_leaves" or item:get_name() == "default:blueberry_bush_leaves" or item:get_name() == "naturalbiomes:beach_bush_leaves" or item:get_name() == "naturalbiomes:outback_bush_leaves" then
+		if item:get_name() == "mcl_core:deadbush" or item:get_name() == "mcl_core:blueberry_bush_leaves" or item:get_name() == "naturalbiomes:beach_bush_leaves" or item:get_name() == "naturalbiomes:outback_bush_leaves" then
 
 			if not mobs.is_creative(name) then
 				item:take_item()
@@ -137,7 +137,7 @@ minetest.register_craftitem(":livingcavesmobs:cocoon", {
 		fixed = {-0.31, -0.5, -0.31, 0.31, 0.5, 0.31}
 	},
 	on_use = minetest.item_eat(2),
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = mcl_sounds.node_sound_leaves_defaults(),
 	groups = {food = 1, flammable = 2, fleshy = 3, dig_immediate = 3},
         drop = "livingcavesmobs:cocoon",
 	after_place_node = function(pos, placer)
@@ -164,7 +164,7 @@ minetest.register_craftitem(":livingcavesmobs:mothegg", {
 	on_use = minetest.item_eat(2),
 	groups = {food = 1, flammable = 2, fleshy = 3, dig_immediate = 3},
         drop = "livingcavesmobs:mothegg",
-	sounds = default.node_sound_leaves_defaults(),
+	sounds = mcl_sounds.node_sound_leaves_defaults(),
 	after_place_node = function(pos, placer)
 		if placer:is_player() then
 			minetest.set_node(pos, {name = "livingcavesmobs:mothegg", param2 = 1})
@@ -177,14 +177,14 @@ minetest.register_craft({
 	output = "livingcavesmobs:cocoon",
 	type = "shapeless",
 	recipe = 
-		{"livingcavesmobs:grub", "default:bush_leaves", "default:bush_leaves", "default:bush_leaves"}
+		{"livingcavesmobs:grub", "mcl_core:deadbush", "mcl_core:deadbush", "mcl_core:deadbush"}
 })
 
 minetest.register_craft({
 	output = "livingcavesmobs:cocoon",
 	type = "shapeless",
 	recipe = 
-		{"livingcavesmobs:grub", "default:blueberry_bush_leaves", "default:blueberry_bush_leaves", "default:blueberry_bush_leaves"}
+		{"livingcavesmobs:grub", "mcl_core:blueberry_bush_leaves", "mcl_core:blueberry_bush_leaves", "mcl_core:blueberry_bush_leaves"}
 })
 
 minetest.register_craft({
@@ -212,7 +212,7 @@ minetest.register_craft({
 	output = "livingcavesmobs:moth",
 	type = "shapeless",
 	recipe = 
-		{"livingcavesmobs:cocoon", "default:stick"}
+		{"livingcavesmobs:cocoon", "mcl_core:stick"}
 })
 
 minetest.register_craft({
@@ -233,12 +233,12 @@ minetest.register_craft({
 	output = "livingcavesmobs:grub",
 	type = "shapeless",
 	recipe = 
-		{"livingcavesmobs:mothegg", "default:blueberry_bush_leaves", "default:blueberry_bush_leaves", "default:blueberry_bush_leaves"}
+		{"livingcavesmobs:mothegg", "mcl_core:blueberry_bush_leaves", "mcl_core:blueberry_bush_leaves", "mcl_core:blueberry_bush_leaves"}
 })
 
 minetest.register_craft({
 	output = "livingcavesmobs:grub",
 	type = "shapeless",
 	recipe = 
-		{"livingcavesmobs:mothegg", "default:bush_leaves", "default:bush_leaves", "default:bush_leaves"}
+		{"livingcavesmobs:mothegg", "mcl_core:deadbush", "mcl_core:deadbush", "mcl_core:deadbush"}
 })

@@ -63,7 +63,7 @@ sounds = {
 	fly_in = {"air"},
 	floats = 1,
 	fly = true,
-	follow = {"default:stone", "default:coal", "livingcaves:hangingmoldend", "livingcaves:hangingmold"},
+	follow = {"mcl_core:stone", "mcl_core:coal", "livingcaves:hangingmoldend", "livingcaves:hangingmold"},
 	view_range = 13,
 	on_rightclick = function(self, clicker)
 

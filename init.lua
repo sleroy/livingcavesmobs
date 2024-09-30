@@ -29,7 +29,7 @@ local S = minetest.get_translator and minetest.get_translator("livingcavesmobs")
 		dofile(path .. "intllib.lua")
 
 
-
+mobs.custom_spawn_livingcavesmobs=false
 -- plants
 dofile(path .. "biter.lua") -- 
 dofile(path .. "chubby.lua") -- 

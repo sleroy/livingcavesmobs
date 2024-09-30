@@ -76,7 +76,7 @@ view_range = 5,
 		local name = clicker:get_player_name()
 
 		-- right clicking with gold lump drops random item from mobs.moth_drops
-		if item:get_name() == "farming:melon_slice" or item:get_name() == "farming:pineapple" or item:get_name() == "ethereal:banana" or item:get_name() == "naturalbiomes:banana" or item:get_name() == "livingdesert:date_palm_fruits" or item:get_name() == "livingdesert:figcactus_fruit" or item:get_name() == "default:apple" then
+		if item:get_name() == "mcl_farming:melon_slice" or item:get_name() == "mcl_farming:pineapple" or item:get_name() == "ethereal:banana" or item:get_name() == "naturalbiomes:banana" or item:get_name() == "livingdesert:date_palm_fruits" or item:get_name() == "livingdesert:figcactus_fruit" or item:get_name() == "mcl_core:apple" then
 
 			if not mobs.is_creative(name) then
 				item:take_item()

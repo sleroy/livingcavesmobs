@@ -1,6 +1,9 @@
-default
+mcl_core
+mcl_stairs
+mcl_doors
+mcl_buckets
+mcl_walls
 livingcaves
 mobs
-tnt
 ethereal?
 naturalbiomes?
