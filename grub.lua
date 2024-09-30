@@ -47,8 +47,6 @@ mobs:register_mob("livingcavesmobs:grub", {
 		speed_normal = 70,
 		stand_start = 0,
 		stand_end = 100,
-		stand_start = 100,
-		stand_end = 200,
 		walk_start = 200,
 		walk_end = 300,
 		die_start = 200,
@@ -124,7 +122,6 @@ mobs:alias_mob("livingcavesmobs:grub", "livingcavesmobs:grub") -- compatibility
 
 minetest.register_craftitem(":livingcavesmobs:cocoon", {
 	description = S("Moth Cocoon"),
-	inventory_image = "livingcavesmobs_cocoon.png",
 	drawtype = "plantlike",
 	tiles = {"livingcavesmobs_cocoon.png"},
 	inventory_image = "livingcavesmobs_cocoon.png",
@@ -149,7 +146,6 @@ minetest.register_craftitem(":livingcavesmobs:cocoon", {
 
 minetest.register_craftitem(":livingcavesmobs:mothegg", {
 	description = S("Moth Egg"),
-	inventory_image = "livingcavesmobs_mothegg.png",
 	drawtype = "plantlike",
 	tiles = {"livingcavesmobs_mothegg.png"},
 	inventory_image = "livingcavesmobs_mothegg.png",
