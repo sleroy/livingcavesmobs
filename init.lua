@@ -39,6 +39,7 @@ dofile(path .. "moth.lua") --
 dofile(path .. "grub.lua") -- 
 dofile(path .. "yeti.lua") -- 
 dofile(path .. "hunger.lua") -- 
+dofile(path .. "spawn_example.lua") -- 
 
 
 
